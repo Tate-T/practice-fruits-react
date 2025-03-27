@@ -19,26 +19,24 @@ import Modal from '../AddModal/Modal.jsx';
 }*/
 
 class FoodsList extends React.Component{
-    constructor(props){
-        super(props);
-        this.state ={
+
+        state ={
             food:foodsData,
             isOpen:false
         }
-       
-    }
+
     onOpenModal =() =>{
         const close = this.state.isOpen
         if (close === true) {
             const searchModal = document.querySelector("#modal")
            console.log(searchModal)
-            searchModal.classList.remove('hideModal')
+            // searchModal.classList.remove('hideModal')
            console.log(searchModal)
             this.setState({isOpen: false})
             
         } else {
             const searchModal = document.querySelector("#modal")
-            searchModal.classList.add('hideModal')
+            // searchModal.classList.add('hideModal')
            this.setState({isOpen: true})
           console.log( this.state.isOpen)
         }
@@ -61,7 +59,7 @@ class FoodsList extends React.Component{
                         )
                     })}
                 </ol>
-            <Modal />
+            {this.state.isOpen && <Modal close={this.onOpenModal} />}
             </div>
         )
     }

@@ -5,9 +5,7 @@ import style from "./Modal.module.css";
 class Modal extends Component {
 
     state = {
-        info: null,
-        test: 'test',
-        isOpen: false
+        info: null
     }
 
     getInformation = (event) => {
@@ -26,28 +24,6 @@ class Modal extends Component {
         //{...{ info: null,test:'test'},...{info: productInfo}}
         this.setState({ info: productInfo })
 
-    }
-    onCloseModal = () => {
-        /*const close = this.state.isOpen
-        console.log('click')
-        //const searchModal = document.querySelector(".backdrop")
-        //console.log(searchModal)
-        if (close === true) {
-            const searchModal = document.querySelector("#modal")
-           console.log(searchModal)
-            searchModal.classList.remove('hideModal')
-           console.log(searchModal)
-            this.setState({isOpen: false})
-            
-        } else {
-            const searchModal = document.querySelector("#modal")
-            searchModal.classList.add('hideModal')
-           this.setState({isOpen: true})
-          console.log( this.state.isOpen)
-        }*/
-       this.setState((prevState) => ({
-        isOpen:!prevState.isOpen
-       }))
     }
 
     /*const testTask = (a,b) => {
@@ -69,9 +45,9 @@ class Modal extends Component {
     render() {
         console.log(this.state.isOpen)
         return (
-            <div  id="modal">
+            <div className={style.backdrop} id="modal">
                 <div className={style.modal}>
-                  <button type="button" onClick={this.onCloseModal} className={style.btn} >
+                  <button type="button" onClick={this.props.close} className={style.btn} >
                     Close
                   </button>
                     <form onSubmit={this.getInformation}>
