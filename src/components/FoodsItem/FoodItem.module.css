@@ -3,9 +3,13 @@
     margin: 10px;
     border: 1px solid blue;
     border-radius: 25px;
-    padding: 5px;
+    padding: 10px;
+    box-shadow: 4px 4px 85px 5px;
 }
-
+.foodItem img{
+    width: 300px;
+    height: 300px;
+}
 .foodItem:hover{
     background-color: aqua;
 }
